@@ -12,8 +12,6 @@ export default function App() {
       <Navbar />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/feature" element={<Feature />} />
-        <Route path="/howto"  element={<Howto />}/> */}
         <Route path="/trade"  element={<Trade />}/>
         <Route path="/learn"  element={<Learn />}/>
       </Routes>
@@ -22,4 +20,3 @@ export default function App() {
     </>
   );
 }
-
