@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --font-sora: "Sora", sans-serif;
+    --font-code: "Source Code Pro", monospace;
+    --font-grotesk: "Space Grotesk", sans-serif;
+    color-scheme: dark;
+  }
+  
+@layer base {
+    body {
+      @apply font-sans text-n-1 text-base;
+    }
+  }
+
+.textAnimation{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 2s steps(47),
+    cursor .4s step-end infinite alternate;
+}
+
+@keyframes cursor{
+    50% {border-color:transparent}
+}
+
+@keyframes typing{
+    from {width: 0}
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.loader {
+  margin: 10rem auto;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  background-image: linear-gradient(#fff 16px, transparent 0),
+    linear-gradient(#008CFF 16px, transparent 0),
+    linear-gradient(#008CFF 16px, transparent 0),
+    linear-gradient(#fff 16px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: left top, left bottom, right top, right bottom;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    width: 64px;
+    height: 64px;
+    transform: rotate(0deg);
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+  }
+  100% {
+    width: 64px;
+    height: 64px;
+    transform: rotate(360deg);
+  }
+}
