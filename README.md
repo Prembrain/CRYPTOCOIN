@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://thecryptocoin.netlify.app/" target="_blank">
-      <img src="https://i.ibb.co/2W1rqLZ/Group-10.png" alt="Live Demo">
+      <img src="https://i.ibb.co/cgYS74w/Group-11.png" alt="Live Demo">
     </a>
   <br />
 
