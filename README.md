@@ -14,9 +14,7 @@
   <h3 align="center">CRYPTOCOIN website</h3>
 </div>
 
-⭐ Credits for the design goes to:  <a href='https://www.figma.com/design/bUGIPys15E78w9bs1l4tgS/HooBank?node-id=310-485&t=9BBtp6mFwaS1IT4G-0' target="_blank">Figma</a>
-<br />
-👉 Live Demo: <a href='https://hoobankcashflow.netlify.app/' target="_blank">Live Demo</a>
+👉 Live Demo: <a href='https://thecryptocoin.netlify.app/' target="_blank">Live Demo</a>
 
 ## 📋 <a name="table">Table of Contents</a>
 
@@ -50,7 +48,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Prembrain/CRYPTOCOIN.git
-cd CRYPTOCOIN-main
+cd CRYPTOCOIN
 ```
 
 **Installation**
