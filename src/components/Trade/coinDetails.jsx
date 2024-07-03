@@ -141,7 +141,3 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
         </>
     )
 }
-
-{/* <div className="flex-1 flex flex-col gap-2 text-color-10">
-                        
-</div> */}
