@@ -141,7 +141,3 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
         </>
     )
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 44b99fb32f740b6c74f67f7934ad442ac04f04d8
