@@ -4,13 +4,12 @@ import { Routes, Route, useLocation } from "react-router-dom"
 
 
 export default function App() {
-  const location = useLocation();
-
+  const location = useLocation(); //return current location
   return (
     <>
     <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden scroll-smooth">
       <Navbar />
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={location.pathname}> {/*return current location URL pathname*/}
         <Route path="/" element={<Home />} />
         <Route path="/trade"  element={<Trade />}/>
         <Route path="/learn"  element={<Learn />}/>

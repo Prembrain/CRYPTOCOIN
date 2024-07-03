@@ -22,7 +22,7 @@ export default function Solution(){
                     )
                     )}
                 </div>
-                <div className='w-full h-auto inline-block align-top relative overflow-hidden'>
+                <div className='w-full h-auto xl:flex justify-center inline-block align-top relative overflow-hidden'>
                     <div className='max-w-[2560px] block'>
                         <img
                             src={heroHome} 

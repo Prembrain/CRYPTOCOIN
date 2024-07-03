@@ -8,18 +8,20 @@ import { RxDotFilled } from 'react-icons/rx';
 
 export default function Review(){
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const startX = useRef(0);
-    const isDragging = useRef(false);
+    const [currentIndex, setCurrentIndex] = useState(0); //track reviwer index
+    const startX = useRef(0); //ref drag event
+    const isDragging = useRef(false); //ref drag event
 
+    //captures starting x position and set drage to true 
     const handleMouseDown = (event) => {
         startX.current = event.clientX;
         isDragging.current = true;
-    };
+    }; 
 
     const handleMouseMove = (event) => {
         if (!isDragging.current) return;
-
+        
+        //Calculates the difference in X position to determine swipe direction.
         const diffX = event.clientX - startX.current;
         if (diffX > 100) { // Swiped right
             handlePrev();
@@ -42,6 +44,7 @@ export default function Review(){
         setCurrentIndex((prevIndex) => (prevIndex + 1) % customersReview.length);
     };
 
+    //dot click
     const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex)
     }
@@ -62,7 +65,7 @@ export default function Review(){
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    onClick={() => setIsActive(!isActive)}                  >
+                >
                     <div className="p-4 mb-0 sm:mb-8 md:mb-10 lg:mb-0 lg:col-span-4 col-span-full select-none">
                         <img
                             className="object-contain " 
