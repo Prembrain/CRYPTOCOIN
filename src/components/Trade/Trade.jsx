@@ -3,15 +3,15 @@ import {useEffect, useState } from 'react'
 import Section from '../section'
 import {Btc, Eth} from "../../assets"
 import CoinDetails from './coinDetails'
-import MakrketUpdate from './MarketUpdate'
+import MarketUpdate from './MarketUpdate'
 
 
 
 export default function Trade(){
 
     // dialog
-    const [isOpen, setIsOpen] = useState(false)
-    const [keyId, setKeyId] = useState("")
+    const [isOpen, setIsOpen] = useState(false) //track the dialog is oepn or closed
+    const [keyId, setKeyId] = useState("") //sent keyId to open dialog detail of coin you choose
 
 
     function handleClick(id){
@@ -23,12 +23,12 @@ export default function Trade(){
 
     // connect api
     const [data, setData] = useState([]);
-    const [coinsLoad, setCoinsLoad] = useState(true);
+    const [coinsLoad, setCoinsLoad] = useState(true); //loader state
   
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4&page=1&sparkline=false`;
   
     function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //regular expression add , as thoussnad separators
     }
   
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Trade(){
           if (!response.ok) {
             throw new Error("Error!");
           }
-          const jsonData = await response.json();
+          const jsonData = await response.json(); //json to javascripy
           setData(jsonData);
         } catch (error) {
           console.error(error);
@@ -78,10 +78,10 @@ export default function Trade(){
                                 />
                         </section>
                         <section 
-                            onLoad={() => setCoinsLoad(false)} 
+                            onLoad={() => setCoinsLoad(false)} //load event: if load show data ,if not show loader
                             className="max-w-[100rem] h-[21rem] hidden lg:flex lg:items-center lg:justify-between px-4 mx-auto text-center mt-4 sm:grid sm:grid-cols-2 gap-y-8"
                             >
-                            {coinsLoad && <span className="loader"></span>}
+                            {coinsLoad && <span className="loader"></span>} {/*coinsLoad true = no load ,show loader*/}
                             {data.map((item) => (
                                 <div
                                     onClick={()=>handleClick(item.id)}
@@ -112,12 +112,12 @@ export default function Trade(){
                             isOpen={isOpen} 
                             closeModal={() => setIsOpen(false)}
                             keyId={keyId}
-                            />
+                        />
                     </div>
                 </article>
             </Section>
             <section className='w-full'>
-                <MakrketUpdate/>
+                <MarketUpdate/>
             </section>
         </>
     )

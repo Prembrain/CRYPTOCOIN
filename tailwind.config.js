@@ -79,7 +79,7 @@ export default {
       },
       backgroundImage: {
         "coinHome": "url('./src/assets/cgpt-front.png')",
-        "learn1": "url('./src/assets/learn/learn1.png')",
+        "learn1": "url('./src/assets/learn/learn1.png')", 
         "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",

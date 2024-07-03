@@ -5,11 +5,11 @@ import CoinDetails from './coinDetails';
 export default function MakrketUpdate(){
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState([]);
-    const [apiLoad, setApiLoad] = useState(true);
+    const [apiLoad, setApiLoad] = useState(true); //loader state
 
     // dialog
-    const [isOpen, setIsOpen] = useState(false)
-    const [keyId, setKeyId] = useState("")
+    const [isOpen, setIsOpen] = useState(false) //track the dialog is oepn or closed
+    const [keyId, setKeyId] = useState("") //sent keyId to open dialog detail of coin you choose
     
     
     function handleClick(id){
@@ -22,30 +22,30 @@ export default function MakrketUpdate(){
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${currentPage}&sparkline=false`;
     
     function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      }
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //regular expression add , as thoussnad separators
+    }
     
-      useEffect(() => {
-        const fetchData = async () => {
-          const response = await fetch(url);
-          const json = await response.json();
-          setData(json);
-        };
-        fetchData();
-      }, [url]);
+    useEffect(() => {
+    const fetchData = async () => {
+        const response = await fetch(url);
+        const json = await response.json(); //json to javascripy
+        setData(json);
+    };
+    fetchData();
+    }, [url]);
 
-      const paginationButtons = [];
-        for (let i = 1; i <= 5; i++) {
-            paginationButtons.push(
-            <button
-                key={i}
-                onClick={() => setCurrentPage(i)}
-                className={`text-[1rem] w-10 h-10 md:w-15 md:h-15 rounded-full cursor-pointer bg-color-14 text-color-13 ${i === currentPage ? "!bg-blue-500  text-color-13" : " "}`}
-            >
-                {i}
-            </button>
-            );
-        }
+    const paginationButtons = []; //change table market componenet
+    for (let i = 1; i <= 5; i++) {
+        paginationButtons.push(
+        <button
+            key={i}
+            onClick={() => setCurrentPage(i)} //setpage number you click
+            className={`text-[1rem] w-10 h-10 md:w-15 md:h-15 rounded-full cursor-pointer bg-color-14 text-color-13 ${i === currentPage ? "!bg-blue-500  text-color-13" : " "}`}
+        >
+            {i}
+        </button>
+        );
+    }
 
   const scrollMarket = () => {
     window.scrollTo({
@@ -53,12 +53,6 @@ export default function MakrketUpdate(){
       behavior: "smooth",
     });
   };
-
-//   const scrollTop = (id) => {
-//     window.scrollTo({ top: (0, 0), behavior: "smooth" });
-//     setKeyId(() => id);
-//   };
-
 
     return(
         <>
@@ -126,5 +120,3 @@ export default function MakrketUpdate(){
         </>
     )
 }
-
-// grid grid-cols-2 auto-rows-auto gap-x-4  sm:grid-cols-4 sm:gap-x-2 lg:gap-x-10 xl:gap-x-12 lg:grid-cols-12'

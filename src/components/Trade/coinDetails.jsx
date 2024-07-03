@@ -7,8 +7,8 @@ import {close} from '../../assets'
 export default function CoinDetails({isOpen, closeModal, keyId}){
 
     // console.log("CoinDetails isOpen:", isOpen); 
-    const [coin, setCoin] = useState({});
-    const [loadCoin, setLoadCoin] = useState(true);
+    const [coin, setCoin] = useState({}); // data detail
+    const [loadCoin, setLoadCoin] = useState(true);  //loader condition is not load show loader
     const url = `https://api.coingecko.com/api/v3/coins/${keyId}`;
 
     useEffect(() => {
@@ -26,21 +26,21 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
         };
     
         fetchData();
-      }, [url]);
+    }, [url]);
     
-      function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      }
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  //regular expression add , as thoussnad separators
+    }
     
-      console.log(coin);
+    // console.log(coin);
     
-    const h24 = coin.market_data ? coin.market_data.price_change_24h : "";
+    const h24 = coin.market_data ? coin.market_data.price_change_24h : ""; //prepare for styles condition - red + green
 
     return(
         <>
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={closeModal}>
-                    <TransitionChild
+            <Transition appear show={isOpen} as={Fragment}> {/*true popup open*/}
+                <Dialog as="div" className="relative z-10" onClose={closeModal}> {/* used to create accessible modal dialogs.*/}
+                    <TransitionChild //bg shadow 
                         as={Fragment}
                         enter="ease-out duration-300"
                         enterFrom="opacity-0"
@@ -54,7 +54,7 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
                     
                     <div className="fixed inset-0 overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4 text-center">
-                        <TransitionChild
+                        <TransitionChild //coin detail
                         as={Fragment}
                         enter="ease-out duration-300"
                         enterFrom="opacity-0 scale-95"
@@ -64,11 +64,11 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
                         leaveTo="opacity-0 scale-95"
                         >
                          <DialogPanel className="relative w-full max-w-[1024px] max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-0 md:p-6 text-left shadow-xl transition-all flex flex-col gap-5 mt-[5rem] md:mt-[4rem]">
-                            <button
+                            <button //close popup
                                 type="button"
                                 className="absolute top-2 right-2 z-20 w-fit p-2 rounded-full"
                                 onClick={() => {
-                                    console.log("Close button clicked");  // Debug log
+                                    // console.log("Close button clicked");  // Debug log
                                     closeModal();
                                   }}
                             >
@@ -142,6 +142,3 @@ export default function CoinDetails({isOpen, closeModal, keyId}){
     )
 }
 
-{/* <div className="flex-1 flex flex-col gap-2 text-color-10">
-                        
-</div> */}
