@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 :root {
     --font-sora: "Sora", sans-serif;
     --font-code: "Source Code Pro", monospace;

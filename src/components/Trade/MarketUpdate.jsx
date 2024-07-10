@@ -47,16 +47,17 @@ export default function MakrketUpdate(){
         );
     }
 
-  const scrollMarket = () => {
-    window.scrollTo({
-      top: window.scrollY - 700,
-      behavior: "smooth",
-    });
-  };
+//   const scrollMarket = () => {
+//     window.scrollTo({
+//       top: window.scrollY - 700,
+//       behavior: "smooth",
+//     });
+//   };
 
     return(
         <>
             <div
+                id="Market"
                 className='py-20 px-0'
             >
                 <div className='!max-w-[80rem] !my-0 !mx-auto !py-0 !px-10'>
@@ -102,12 +103,13 @@ export default function MakrketUpdate(){
                                 ))}
                             </div>
                         </div>
-                        <div
-                            onClick={scrollMarket}
+                        <a
+                            // onClick={scrollMarket}
+                            href='#Market'
                             className="flex gap-[1.3rem] justify-center items-center mt-10 sm:mt-15 lg:mt-20"
                         >
                             {paginationButtons}
-                        </div>
+                        </a>
                     </div>
                     <CoinDetails 
                         isOpen={isOpen} 
